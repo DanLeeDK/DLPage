@@ -1,0 +1,28 @@
+<div *ngIf=pet>
+  <div style="padding-bottom: 2cm;">
+    <a href={{pet.image}}>
+      <img style="padding-left: 3cm;" class="img img-rounded img-responsive" height=200px width=600px  src={{pet.image}}>
+    </a>
+  </div>
+  <div class="span6 pull-left">
+      <label>Name: {{pet.name}}</label>
+      <label>Age: {{pet.age}} years</label>
+      <label>Town: {{pet.town}}</label>
+    <div class="pull-left">
+      <div *ngIf=!delete>
+        <button (click)="showDeleteButton()">Delete pet</button>
+      </div>
+    <div *ngIf=delete>
+        <label>Are you sure you want to delete {{pet.name}}'s profil?</label>
+    <div>
+      <button (click)="deletePet()">Yes</button>
+      <button (click)="showDeleteButton()" >Cancel</button>
+    </div>
+    </div>
+
+  </div>
+  </div>
+
+<div *ngIf=!pet>
+No pet found.
+</div>

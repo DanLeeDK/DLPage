@@ -1,27 +1,47 @@
+import { SearchPipe } from './search-pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PetService } from './pets/pet.service';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
-import { ProductModule } from './products/product.module';
+import { PetProfilComponent } from './pets/pet-profil/pet-profil.component';
+import { PetListComponent } from './pets/pet-list/pet-list.component';
+import { CreatePetComponent } from './pets/create-pet/create-pet.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    SearchPipe,
+    PetProfilComponent,
+    PetListComponent,
+    CreatePetComponent,
+    CreateUserComponent,
+
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
         { path: 'welcome', component: WelcomeComponent },
+        { path: 'createpet', component: CreatePetComponent },
+        { path: 'petslist', component: PetListComponent },
+        { path: 'profil/:id', component: PetProfilComponent },
         { path: '', redirectTo: 'welcome', pathMatch: 'full'},
         { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),
-    ProductModule
   ],
+providers: [ PetService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

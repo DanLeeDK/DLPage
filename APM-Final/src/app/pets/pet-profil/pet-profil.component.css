@@ -4,19 +4,24 @@ button {
   display: inline-block;
   border-radius: 4px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  font-family: Arial, sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   line-height: 2.5em;
   padding: 0 3em;
   text-decoration: none;
-font-size:15pt;
+  font-size:15pt;
 }
 
-
+img {
+  left: 0px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
 
 label {
   text-align:left;
-display:block;
-font-size:15pt;
+  display:block;
+  font-size:15pt;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 

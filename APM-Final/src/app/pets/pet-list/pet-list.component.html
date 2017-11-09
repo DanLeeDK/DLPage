@@ -7,12 +7,11 @@
 <th><label>Age</label></th>
 </tr>
   </thead>
-
 <tbody>
 <tr *ngFor="let pet of petslist">
 <td routerLink="/profil/{{pet.id}}"><label class=pull-left>{{pet.name}}</label></td>
-<td routerLink="/profil/{{pet.id}}"><img class=pull-left alt="Picture of the pet"
-  width= 300px class="img img-rounded img-responsive" height=300px src={{pet.image}}></td>
+<td routerLink="/profil/{{pet.id}}"><img class=pull-left alt="Picture of the pet" width= 300px
+  class="img img-rounded img-responsive" height=300px  src={{pet.image}}></td>
 <td routerLink="/profil/{{pet.id}}"><label class=pull-left>{{pet.town}}</label></td>
 <td routerLink="/profil/{{pet.id}}"><label class=pull-left>{{pet.age}} y</label></td>
 </tr>

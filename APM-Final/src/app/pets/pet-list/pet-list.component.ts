@@ -9,6 +9,7 @@ import { PetService, Pet } from './../pet.service';
 })
 export class PetListComponent implements OnInit {
 petslist: Pet[];
+images: string;
   constructor(private service: PetService) { }
 
   ngOnInit() {

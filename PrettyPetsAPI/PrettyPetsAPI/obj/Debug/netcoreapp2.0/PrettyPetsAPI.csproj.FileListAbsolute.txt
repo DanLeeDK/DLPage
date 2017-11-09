@@ -1,0 +1,11 @@
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.deps.json
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.runtimeconfig.json
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.runtimeconfig.dev.json
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.dll
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.csproj.CoreCompileInputs.cache
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.AssemblyInfoInputs.cache
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.AssemblyInfo.cs
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.pdb
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.dll
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.pdb
+C:\Users\Dan\source\repos\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.csprojResolveAssemblyReference.cache

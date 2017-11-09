@@ -37,6 +37,7 @@ import { CreateUserComponent } from './user/create-user/create-user.component';
         { path: 'createpet', component: CreatePetComponent },
         { path: 'petslist', component: PetListComponent },
         { path: 'profil/:id', component: PetProfilComponent },
+        { path: 'createuser', component: CreateUserComponent },
         { path: '', redirectTo: 'welcome', pathMatch: 'full'},
         { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),

@@ -1,3 +1,4 @@
+import { UserService } from './user/user.service';
 import { SearchPipe } from './search-pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -36,12 +37,13 @@ import { CreateUserComponent } from './user/create-user/create-user.component';
         { path: 'welcome', component: WelcomeComponent },
         { path: 'createpet', component: CreatePetComponent },
         { path: 'petslist', component: PetListComponent },
-        { path: 'profil/:id', component: PetProfilComponent },
+        { path: 'petprofil/:id', component: PetProfilComponent },
+        { path: 'createuser', component: CreateUserComponent },
         { path: '', redirectTo: 'welcome', pathMatch: 'full'},
         { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),
   ],
-providers: [ PetService ],
+providers: [ PetService, UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

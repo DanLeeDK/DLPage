@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PrettyPetsAPI.Models;
 
 namespace PrettyPetsAPI
 {
@@ -31,8 +34,21 @@ namespace PrettyPetsAPI
                     Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/PetImages")));
 
             services.AddMvc();
-            
-            services.AddDbContext<PetDbContext>(options =>
+
+            services.AddAutoMapper();
+
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+                {
+                    options.Password.RequireDigit = false;
+                    options.Password.RequiredLength = 5;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireLowercase = false;
+                })
+                .AddEntityFrameworkStores<PetDbContext>()
+                .AddDefaultTokenProviders();
+
+           services.AddDbContext<PetDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("PrettyPets")); //Leder efter matchende connectionsString i appsettings.
             });

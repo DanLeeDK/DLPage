@@ -37,16 +37,12 @@ getPet(id: number): Observable<Pet> {
 getAllPets(): Observable<Pet[]> {
   const token = this.userService.getToken();
    // TODO error handling
-let header = new HttpHeaders();
-const headerValue = 'Bearer ' + token;
-header.set('Authorization', headerValue);
-header.set('Content-Type', 'application/json');
+  const header = new HttpHeaders().set('Authorization', 'Bearer' + token);
 
   const options = {
     headers: header,
   };
 
-  console.log(('Bearer ' + token));
   return this.http.get<Pet[]>(this._apiUrl + 'pets', options);
 }
 }

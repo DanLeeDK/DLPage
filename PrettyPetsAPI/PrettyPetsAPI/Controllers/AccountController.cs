@@ -25,7 +25,7 @@ namespace PrettyPetsAPI.Controllers
 
         // POST api/account
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegistrationViewModel model)
+        public async Task<IActionResult> Register([FromForm] RegistrationViewModel model)
         {
             if (!ModelState.IsValid)
             {

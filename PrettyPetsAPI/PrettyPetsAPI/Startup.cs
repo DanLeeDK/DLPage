@@ -32,9 +32,22 @@ namespace PrettyPetsAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+                {
+                    options.Password.RequireDigit = false;
+                    options.Password.RequiredLength = 5;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireLowercase = false;
+                })
+                .AddEntityFrameworkStores<PetDbContext>()
+                .AddDefaultTokenProviders();
+
             services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             services.AddAutoMapper();
+
+            services.AddCors();
 
             services.AddDbContext<PetDbContext>(options =>
             {
@@ -71,17 +84,6 @@ namespace PrettyPetsAPI
                 options.TokenExpirationInMinutes = int.Parse(Configuration["Tokens:TokenExpirationInMinutes"]);
             });
 
-            services.AddIdentity<AppUser, IdentityRole>(options =>
-                {
-                    options.Password.RequireDigit = false;
-                    options.Password.RequiredLength = 5;
-                    options.Password.RequireUppercase = false;
-                    options.Password.RequireNonAlphanumeric = false;
-                    options.Password.RequireLowercase = false;
-                })
-                .AddEntityFrameworkStores<PetDbContext>()
-                .AddDefaultTokenProviders();
-            
             services.AddSingleton<IFileProvider>(
                 new PhysicalFileProvider(
                     Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/PetImages")));

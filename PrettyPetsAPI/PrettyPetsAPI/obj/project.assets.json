@@ -12936,7 +12936,7 @@
     {
       "code": "NU1102",
       "level": "Error",
-      "message": "Unable to find package Microsoft.EntityFrameworkCore.sqlserver.Design with version (>= 2.0.0)\r\n  - Found 14 version(s) in nuget.org [ Nearest version: 2.0.0-preview1-final ]\r\n  - Found 7 version(s) in Microsoft Visual Studio Offline Packages [ Nearest version: 1.1.2 ]",
+      "message": "Unable to find package Microsoft.EntityFrameworkCore.sqlserver.Design with version (>= 2.0.0)\r\n  - Found 16 version(s) in nuget.org [ Nearest version: 2.0.0-preview1-final ]\r\n  - Found 7 version(s) in Microsoft Visual Studio Offline Packages [ Nearest version: 1.1.2 ]",
       "libraryId": "Microsoft.EntityFrameworkCore.sqlserver.Design",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.0"

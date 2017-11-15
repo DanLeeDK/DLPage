@@ -1,3 +1,4 @@
+import { UserService } from './../user/user.service';
 import { FormsModule } from '@angular/forms';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
@@ -9,7 +10,7 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class PetService {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private userService: UserService) {
 console.log('Pet Service is connected...');
    }
 private _apiUrl = 'http://localhost:19586/api/';
@@ -34,7 +35,15 @@ getPet(id: number): Observable<Pet> {
 }
 
 getAllPets(): Observable<Pet[]> {
-  return this.http.get<Pet[]>(this._apiUrl + 'pets');
+  const token = this.userService.getToken();
+   // TODO error handling
+  const header = new HttpHeaders().set('Authorization', 'Bearer' + token);
+
+  const options = {
+    headers: header,
+  };
+
+  return this.http.get<Pet[]>(this._apiUrl + 'pets', options);
 }
 }
 

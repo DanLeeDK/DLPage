@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "a7aa306d2e264d92ffef06296341a5e29b6e41eb"
+    "signature": "5f16b785364229e217e3d48be76b19834d9fc3b0"
   },
   "compilationOptions": {
     "defines": [
@@ -23,10 +23,15 @@
     ".NETCoreApp,Version=v2.0": {
       "PrettyPetsAPI/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.1.0",
+          "FluentValidation.AspNetCore": "7.2.1",
           "Microsoft.AspNetCore.All": "2.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.0.0",
           "Microsoft.EntityFrameworkCore": "2.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.0",
+          "Microsoft.IdentityModel.Tokens": "5.1.4",
           "Microsoft.NETCore.App": "2.0.0",
           "System.IdentityModel.Tokens.Jwt": "5.1.4"
         },
@@ -35,6 +40,64 @@
         },
         "compile": {
           "PrettyPetsAPI.dll": {}
+        }
+      },
+      "AutoMapper/6.2.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.4.0",
+          "NETStandard.Library": "2.0.0",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Linq.Queryable": "4.3.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/3.1.0": {
+        "dependencies": {
+          "AutoMapper": "6.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyModel": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "FluentValidation/7.2.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/FluentValidation.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.0/FluentValidation.dll": {}
+        }
+      },
+      "FluentValidation.AspNetCore/7.2.1": {
+        "dependencies": {
+          "FluentValidation": "7.2.1",
+          "Microsoft.AspNetCore.Mvc": "2.0.0",
+          "NETStandard.Library": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard1.6/FluentValidation.AspNetCore.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.6/FluentValidation.AspNetCore.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -2375,7 +2438,7 @@
           "System.Diagnostics.Debug": "4.3.0",
           "System.Linq": "4.3.0",
           "System.Linq.Expressions": "4.3.0",
-          "System.Linq.Queryable": "4.0.1",
+          "System.Linq.Queryable": "4.3.0",
           "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
@@ -2989,7 +3052,7 @@
           "System.Threading": "4.3.0"
         }
       },
-      "System.Linq.Queryable/4.0.1": {
+      "System.Linq.Queryable/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
           "System.Diagnostics.Debug": "4.3.0",
@@ -3981,6 +4044,34 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/6.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BqguuSB2DDLdv/ohIfrvXCL+jWC6g284m4Xi/7snYcwoRAEPI0CdOb3EZjJ3MEYlZKDD5EFnN+jkr84NAUsN+Q==",
+      "path": "automapper/6.2.0",
+      "hashPath": "automapper.6.2.0.nupkg.sha512"
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IWvYn9BMBrIL7bRfDBhkmEtYmTlbxjPDGfhgOEJFI3vvdctfn+wgtZNDu1NhZvc63dB+m7XIf1HxCm1SsNMizA==",
+      "path": "automapper.extensions.microsoft.dependencyinjection/3.1.0",
+      "hashPath": "automapper.extensions.microsoft.dependencyinjection.3.1.0.nupkg.sha512"
+    },
+    "FluentValidation/7.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cQza24pZdc1aPziHNPOazZzg2/5l8S1zbnIpjKMBq8kopRAGj+YXqGyP8Xo4OIqV16SccmzU1hhKV3Q7FyXglg==",
+      "path": "fluentvalidation/7.2.1",
+      "hashPath": "fluentvalidation.7.2.1.nupkg.sha512"
+    },
+    "FluentValidation.AspNetCore/7.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l5NME8hnSMs61vIQez0nEqmB5YBa88j+o+Q8ar9/ALaNKeVgyDtnjIIGy24N44Lwwd0LUMg/6hEwK+51T+iAoQ==",
+      "path": "fluentvalidation.aspnetcore/7.2.1",
+      "hashPath": "fluentvalidation.aspnetcore.7.2.1.nupkg.sha512"
     },
     "Libuv/1.10.0": {
       "type": "package",
@@ -5557,12 +5648,12 @@
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
     },
-    "System.Linq.Queryable/4.0.1": {
+    "System.Linq.Queryable/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
-      "path": "system.linq.queryable/4.0.1",
-      "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+      "sha512": "sha512-In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
+      "path": "system.linq.queryable/4.3.0",
+      "hashPath": "system.linq.queryable.4.3.0.nupkg.sha512"
     },
     "System.Net.Http/4.3.0": {
       "type": "package",

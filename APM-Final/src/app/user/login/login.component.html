@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="pull-left">
+    <form id="account-form" enctype="multipart/form-data">
+      <div class="form-group">
+
+<label for="email" >Email:</label>
+<input [(ngModel)]="credentials.email" class="form-control"
+ type="text" name="email" required #email="ngModel">
+
+<div *ngIf="email.invalid && (email.dirty || email.touched)">
+  <div *ngIf="email.errors.required"><!--Virker-->
+    <label id="error">Email is required.</label>
+  </div>
+</div>
+
+<label for="pwd" >Password:</label>
+<input [(ngModel)]="credentials.password" class="form-control"
+ type="password" name="password" required #password="ngModel">
+
+<div *ngIf="password.invalid && (password.dirty || password.touched)">
+  <div *ngIf="password.errors.required"><!--Virker-->
+    <label id="error">Password is required.</label>
+  </div>
+</div>
+
+      </div>
+    <button [disabled]="email.errors || password.errors" class="btn btn-outline-primary" (click)="login()">Create account</button>
+  </form>
+</div>

@@ -41,14 +41,9 @@ import { LoginComponent } from './user/login/login.component';
         { path: 'welcome', component: WelcomeComponent },
         { path: 'createpet', component: CreatePetComponent },
         { path: 'petslist', component: PetListComponent },
-<<<<<<< HEAD
-        { path: 'profil/:id', component: PetProfilComponent },
-        { path: 'createuser', component: CreateUserComponent },
-=======
         { path: 'petprofil/:id', component: PetProfilComponent },
         { path: 'createuser', component: CreateUserComponent },
         { path: 'login', component: LoginComponent },
->>>>>>> UserAuthentication
         { path: '', redirectTo: 'welcome', pathMatch: 'full'},
         { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),

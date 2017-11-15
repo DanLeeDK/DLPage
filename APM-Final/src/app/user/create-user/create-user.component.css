@@ -4,3 +4,8 @@ label {
   display:block;
   font-size:15pt;
 }
+
+#error {
+color:red;
+font-size:10pt;
+}

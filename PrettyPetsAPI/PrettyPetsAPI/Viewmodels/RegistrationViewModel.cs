@@ -1,8 +1,5 @@
-﻿using System;
-using PrettyPetsAPI.Models;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 
 namespace PrettyPetsAPI.Viewmodels
 {
@@ -38,7 +35,7 @@ namespace PrettyPetsAPI.Viewmodels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        
+
         //public int Id { get; set; }
         //public string IdentityId { get; set; }
         //public AppUser Identity { get; set; }  // navigation property

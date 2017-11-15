@@ -3,12 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using PrettyPetsAPI.Viewmodels;
 
 namespace PrettyPetsAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class PetsController : Controller
     {

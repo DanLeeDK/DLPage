@@ -18,8 +18,15 @@ export class CreateUserComponent implements OnInit {
 
   }
 
-  login(user: UserRegistration) {
-      this.userService.login(user).subscribe();
+  Register(user: UserRegistration) {
+      this.userService.register(user).subscribe();
+      this.router.navigate(['welcome']);
   }
+
+
+  Login(user: UserRegistration) {
+    this.userService.login(user).subscribe();
+    this.router.navigate(['welcome']);
+}
 }
 

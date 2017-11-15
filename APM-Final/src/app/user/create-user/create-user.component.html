@@ -4,38 +4,39 @@
         <div class="form-group">
 
 <label for="firstname" >First name:</label>
-<input class="form-control" id="firstname" [(ngModel)]="user.firstname"
- minlength="4" type="text" name="firstname" required #firstname="ngModel">
+<input [(ngModel)]="user.firstname" class="form-control"
+ type="text" name="firstname" required #firstname="ngModel">
 
 <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
-  <div *ngIf="firstname.errors.required">
-    Name is required.
+  <div *ngIf="firstname.errors.required"><!--Virker-->
+    <label id="error">First name is required.</label>
   </div>
-
-  <div *ngIf="firstname.errors.minlength">
-    Name must be at least 4 characters long.
-  </div>
-
 </div>
 
+<label for="lastname" >Last name:</label>
+<input [(ngModel)]="user.lastname" class="form-control"
+ type="text" name="lastname" required #lastname="ngModel">
 
-<label for="lastname" class="form-control">Last name:</label>
-<input [(ngModel)]="user.lastname" type="text" name="lastname" id="lastname">
+ <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+  <div *ngIf="lastname.errors.required"><!--Virker-->
+    <label id="error">Last name is required.</label>
+  </div>
+</div>
 
-<label for="email" class="form-control">Email:</label>
-<input [(ngModel)]="user.email" type="text" name="email" id="email">
+<label for="email" >Email:</label>
+<input [(ngModel)]="user.email" class="form-control" type="text" name="email" id="email">
 
-<label for="city" class="form-control">City:</label>
-<input [(ngModel)]="user.city" type="text" name="city" id="city">
+<label for="city" >City:</label>
+<input [(ngModel)]="user.city" class="form-control" type="text" name="city" id="city">
 
-<label for="pwd" class="form-control">Password:</label>
-<input [(ngModel)]="user.password" type="password" name="pwd" id="pwd">
+<label for="pwd" >Password:</label>
+<input [(ngModel)]="user.password" class="form-control" type="password" name="pwd" id="pwd">
 
-<label for="conpwd" class="form-control">Confirm password:</label>
-<input [(ngModel)]="user.confirmPassword" type="password" name="conpwd" id="conpwd">
+<label for="conpwd" >Confirm password:</label>
+<input [(ngModel)]="user.confirmPassword" class="form-control" type="password" name="conpwd" id="conpwd">
 
           </div>
-          <button class="btn btn-outline-primary" (click)="login(user)">Create account</button>
+          <button [disabled]="firstname.errors || lastname.errors" class="btn btn-outline-primary" (click)="Register(user)">Create account</button>
       </form>
     </div>
   </div>

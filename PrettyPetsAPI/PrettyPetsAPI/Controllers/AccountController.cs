@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PrettyPetsAPI.Models;
 using PrettyPetsAPI.Viewmodels;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PrettyPetsAPI.Controllers
 {
@@ -23,16 +23,16 @@ namespace PrettyPetsAPI.Controllers
             _context = context;
         }
 
-        // POST api/accounts
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody]RegistrationViewModel model)
+        // POST api/account
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegistrationViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.UserName ==model.Email);
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.UserName == model.Email);
             if (user != null)
             {
                 return BadRequest("Username already exist");
@@ -46,12 +46,12 @@ namespace PrettyPetsAPI.Controllers
 
             if (!result.Succeeded) return BadRequest("Account creation failed");
 
-            await _context.PetOwners.AddAsync(new PetOwner { IdentityId = userIdentity.Id, City = model.City });
+            await _context.PetOwners.AddAsync(new PetOwner {IdentityId = userIdentity.Id, City = model.City});
             await _context.SaveChangesAsync();
 
             return new OkObjectResult("Account created");
         }
-        
+
         public JsonResult doesUserNameExist(string UserName)
         {
             var user = _userManager.Users.FirstOrDefault(u => u.UserName == UserName);

@@ -1,8 +1,8 @@
-import { TokenService } from './../token.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseService } from '../shared/base.service';
+import { TokenService } from './../token.service';
 
 @Injectable()
 export class UserService extends BaseService {
@@ -25,16 +25,18 @@ export class UserService extends BaseService {
     }
 
     public login(user: UserCredentials) {
+      console.log('logging in...');
       return this.tokenService.login(user).do(token => {
         localStorage.setItem(this.tokenStorageKey, token.access_token);
         localStorage.setItem(this.refreshTokenKey, token.refresh_token);
-        console.log('logging in...');
+                this.router.navigate(['welcome']);
       }); // TODO error handling
     }
 
     public logout() {
       localStorage.removeItem(this.tokenStorageKey);
       localStorage.removeItem(this.refreshTokenKey);
+      console.log('logging out...');
       this.router.navigate(['login']);
     }
 

@@ -9,14 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
-using PrettyPetsAPI.Auth;
 using PrettyPetsAPI.Models;
+using PrettyPetsAPI.Services;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
-using PrettyPetsAPI.Services;
 
 namespace PrettyPetsAPI
 {
@@ -47,7 +45,7 @@ namespace PrettyPetsAPI
 
             services.AddAutoMapper();
 
-            services.AddCors();
+            //services.AddCors();
 
             services.AddDbContext<PetDbContext>(options =>
             {

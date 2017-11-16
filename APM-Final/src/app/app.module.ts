@@ -1,14 +1,16 @@
-import { AuthInterceptor } from './Interceptors/http.interceptor';
 import { TokenService } from './token.service';
 import { UserService } from './user/user.service';
+import { PetService } from './pets/pet.service';
+
 import { SearchPipe } from './search-pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PetService } from './pets/pet.service';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './guards/auth.guard';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
@@ -17,8 +19,6 @@ import { PetListComponent } from './pets/pet-list/pet-list.component';
 import { CreatePetComponent } from './pets/create-pet/create-pet.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { LoginComponent } from './user/login/login.component';
-
-
 
 @NgModule({
   declarations: [
@@ -30,32 +30,19 @@ import { LoginComponent } from './user/login/login.component';
     CreatePetComponent,
     CreateUserComponent,
     LoginComponent,
-
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-        { path: 'welcome', component: WelcomeComponent },
-        { path: 'createpet', component: CreatePetComponent },
-        { path: 'petslist', component: PetListComponent },
-        { path: 'petprofil/:id', component: PetProfilComponent },
-        { path: 'createuser', component: CreateUserComponent },
-        { path: 'login', component: LoginComponent },
-        { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-        { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-    ]),
+    AppRoutingModule,
   ],
-providers: [ PetService,
-   UserService,
-   TokenService,
-  {
-provide: HTTP_INTERCEPTORS,
-useClass: AuthInterceptor,
-multi: true
-  }
+  providers: [
+    AuthGuard,
+    PetService,
+    UserService,
+    TokenService
 ],
   bootstrap: [AppComponent]
 })

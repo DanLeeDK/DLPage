@@ -4,7 +4,7 @@ import { UserService } from './user/user.service';
 import { SearchPipe } from './search-pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, CanActivate } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetService } from './pets/pet.service';
@@ -17,6 +17,7 @@ import { PetListComponent } from './pets/pet-list/pet-list.component';
 import { CreatePetComponent } from './pets/create-pet/create-pet.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { LoginComponent } from './user/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -38,9 +39,12 @@ import { LoginComponent } from './user/login/login.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-        { path: 'welcome', component: WelcomeComponent },
-        { path: 'createpet', component: CreatePetComponent },
-        { path: 'petslist', component: PetListComponent },
+        { path: 'welcome',
+        component: WelcomeComponent },
+        { path: 'createpet', component: CreatePetComponent,
+        canActivate: [AuthGuard] },
+        { path: 'petslist', component: PetListComponent,
+        canActivate: [AuthGuard] },
         { path: 'petprofil/:id', component: PetProfilComponent },
         { path: 'createuser', component: CreateUserComponent },
         { path: 'login', component: LoginComponent },
@@ -51,6 +55,7 @@ import { LoginComponent } from './user/login/login.component';
 providers: [ PetService,
    UserService,
    TokenService,
+    AuthGuard,
   {
 provide: HTTP_INTERCEPTORS,
 useClass: AuthInterceptor,

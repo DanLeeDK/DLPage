@@ -18,8 +18,6 @@ import { CreatePetComponent } from './pets/create-pet/create-pet.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { LoginComponent } from './user/login/login.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

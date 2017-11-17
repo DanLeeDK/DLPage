@@ -18,8 +18,7 @@ import { CreatePetComponent } from './pets/create-pet/create-pet.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { LoginComponent } from './user/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
-
-
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -38,28 +37,17 @@ import { AuthGuard } from './guards/auth.guard';
     HttpModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-        { path: 'welcome',
-        component: WelcomeComponent },
-        { path: 'createpet', component: CreatePetComponent,
-        canActivate: [AuthGuard] },
-        { path: 'petslist', component: PetListComponent,
-        canActivate: [AuthGuard] },
-        { path: 'petprofil/:id', component: PetProfilComponent },
-        { path: 'createuser', component: CreateUserComponent },
-        { path: 'login', component: LoginComponent },
-        { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-        { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-    ]),
+    AppRoutingModule
   ],
-providers: [ PetService,
-   UserService,
-   TokenService,
+providers: [
+    PetService,
+    UserService,
+    TokenService,
     AuthGuard,
   {
-provide: HTTP_INTERCEPTORS,
-useClass: AuthInterceptor,
-multi: true
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
   }
 ],
   bootstrap: [AppComponent]

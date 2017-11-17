@@ -12666,11 +12666,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\DLPage\\PrettyPetsAPI\\PrettyPetsAPI\\PrettyPetsAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\PrettyPetsAPI.csproj",
       "projectName": "PrettyPetsAPI",
-      "projectPath": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\DLPage\\PrettyPetsAPI\\PrettyPetsAPI\\PrettyPetsAPI.csproj",
+      "projectPath": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\PrettyPetsAPI.csproj",
       "packagesPath": "C:\\Users\\Dan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\DLPage\\PrettyPetsAPI\\PrettyPetsAPI\\obj\\",
+      "outputPath": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

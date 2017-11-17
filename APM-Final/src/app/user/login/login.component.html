@@ -1,6 +1,6 @@
 <div class="container">
   <div class="pull-left">
-    <form id="account-form" enctype="multipart/form-data">
+    <form id="account-form" enctype="multipart/form-data" (submit)=login()>
       <div class="form-group">
 
 <label for="email" >Email:</label>
@@ -24,6 +24,6 @@
 </div>
 
       </div>
-    <button [disabled]="email.errors || password.errors" class="btn btn-outline-primary" (click)="login()">Create account</button>
+    <button [disabled]="email.errors || password.errors" class="btn btn-outline-primary" type="submit">Create account</button>
   </form>
 </div>

@@ -14,7 +14,8 @@ import { CreateUserComponent } from './user/create-user/create-user.component';
 const routes: Routes = [
   {
     path: 'welcome',
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    canActivate: [AuthGuard]
   },
   {
   path: 'createpet',
@@ -28,11 +29,13 @@ const routes: Routes = [
   },
   {
     path: 'petprofil/:id',
-    component: PetProfilComponent
+    component: PetProfilComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'createuser',
-    component: CreateUserComponent
+    component: CreateUserComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -51,6 +54,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {

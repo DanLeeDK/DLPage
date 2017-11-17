@@ -19,6 +19,7 @@ credentials: UserCredentials;
 
   public login() {
     this.userService.login(this.credentials).subscribe();
+    this.router.navigate(['welcome']);
   }
 
 }

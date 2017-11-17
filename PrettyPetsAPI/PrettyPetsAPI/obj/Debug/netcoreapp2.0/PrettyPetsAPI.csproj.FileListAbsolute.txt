@@ -20,3 +20,14 @@ C:\Users\Dan\Documents\Skole\5. Semester_Praktik\DLPage\PrettyPetsAPI\PrettyPets
 C:\Users\Dan\Documents\Skole\5. Semester_Praktik\DLPage\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.runtimeconfig.dev.json
 C:\Users\Dan\Documents\Skole\5. Semester_Praktik\DLPage\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.dll
 C:\Users\Dan\Documents\Skole\5. Semester_Praktik\DLPage\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.pdb
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.deps.json
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.runtimeconfig.json
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.runtimeconfig.dev.json
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.dll
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\bin\Debug\netcoreapp2.0\PrettyPetsAPI.pdb
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.csproj.CoreCompileInputs.cache
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.AssemblyInfoInputs.cache
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.AssemblyInfo.cs
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.dll
+C:\Users\Dan\Documents\Skole\5. Semester_Praktik\PrettyPets\PrettyPetsAPI\PrettyPetsAPI\obj\Debug\netcoreapp2.0\PrettyPetsAPI.pdb

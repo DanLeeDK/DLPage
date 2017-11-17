@@ -4,8 +4,10 @@
 # User-specific files
 *.suo
 *.user
+*.DotSettings
 *.userosscache
 *.sln.docstates
+.idea/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -24,8 +26,6 @@ bld/
 
 # Visual Studio 2015 cache/options directory
 .vs/
-# Visual Studio Code cache/options directory
-.vscode/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -168,9 +168,6 @@ csx/
 ecf/
 rcf/
 
-# Microsoft Azure ApplicationInsights config file
-ApplicationInsights.config
-
 # Windows Store app package directory
 AppPackages/
 BundleArtifacts/
@@ -192,14 +189,6 @@ ClientBin/
 *.publishsettings
 node_modules/
 orleans.codegen.cs
-
-# Bower packages
-**/wwwroot/lib/
-
-# Generated files (js/css/map)
-**/wwwroot/js/**/*.min.js
-**/wwwroot/js/**/*.map
-**/wwwroot/css/**/*.min.css
 
 # RIA/Silverlight projects
 Generated_Code/
@@ -253,3 +242,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+*.pubxml
+/MVC/bower_components

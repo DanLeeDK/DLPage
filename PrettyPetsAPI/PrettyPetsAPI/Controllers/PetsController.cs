@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -36,11 +37,21 @@ namespace PrettyPetsAPI.Controllers
             return await _context.Pets.FirstOrDefaultAsync(p => p.Id == id);
         }
 
+        // GET api/pets/5
+        [HttpGet("Mypets")]
+        public List<Pet> Get([FromForm] UserIdViewModel user )
+        {
+            if (ModelState.IsValid)
+            {
+                return _context.PetOwners.Find(user.Id).Pets;
+            }
+            return null;
+        }
+
         // POST api/pets
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] PetPostViewmodel model, IFormFile image)
         {
-            
             var path = Path.Combine(
                 Directory.GetCurrentDirectory(), "wwwroot/PetImages", image.FileName);
 
@@ -55,6 +66,10 @@ namespace PrettyPetsAPI.Controllers
                 Age = model.Age,
                 Image = (_configuration.GetConnectionString("ImageFolder") + image.FileName)
             };
+
+            var owner = await _context.PetOwners.FindAsync(model.UserId);
+
+            owner.Pets.Add(pet);
             _context.Pets.Add(pet);
             _context.SaveChanges();
             return Ok();

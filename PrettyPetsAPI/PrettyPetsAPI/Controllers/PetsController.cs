@@ -10,7 +10,6 @@ using PrettyPetsAPI.Viewmodels;
 
 namespace PrettyPetsAPI.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     public class PetsController : Controller
     {

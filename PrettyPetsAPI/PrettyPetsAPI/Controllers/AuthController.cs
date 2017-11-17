@@ -1,17 +1,10 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
-using PrettyPetsAPI.Auth;
-using PrettyPetsAPI.Helpers;
 using PrettyPetsAPI.Models;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
 using PrettyPetsAPI.Services;
 using PrettyPetsAPI.Viewmodels;
+using System.IdentityModel.Tokens.Jwt;
+using System.Threading.Tasks;
 
 namespace Presentation.Web.API.Controllers
 {

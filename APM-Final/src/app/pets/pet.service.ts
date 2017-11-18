@@ -49,6 +49,7 @@ getAllPets(): Observable<Pet[]> {
 
 export class Pet {
   id: number;
+  userid: number;
   name: string;
   age: number;
   town: string;

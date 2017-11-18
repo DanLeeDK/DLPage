@@ -35,9 +35,5 @@ namespace PrettyPetsAPI.Viewmodels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-        //public int Id { get; set; }
-        //public string IdentityId { get; set; }
-        //public AppUser Identity { get; set; }  // navigation property
     }
 }

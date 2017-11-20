@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +43,8 @@ namespace PrettyPetsAPI.Controllers
 
             userIdentity.UserName = userIdentity.Email;
 
+            GiveUserUppercase(userIdentity);
+
             var result = await _userManager.CreateAsync(userIdentity, model.Password);
 
             if (!result.Succeeded) return BadRequest("Account creation failed");
@@ -50,6 +53,23 @@ namespace PrettyPetsAPI.Controllers
             await _context.SaveChangesAsync();
 
             return new OkObjectResult("Account created");
+        }
+
+        public void GiveUserUppercase(AppUser user)
+        {
+            user.FirstName = FirstCharToUpper(user.FirstName);
+            user.LastName = FirstCharToUpper(user.LastName);
+            user.City = FirstCharToUpper(user.City);
+        }
+
+        public static string FirstCharToUpper(string input)
+        {
+            switch (input)
+            {
+                case null: throw new ArgumentNullException(nameof(input));
+                case "": throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input));
+                default: return input.First().ToString().ToUpper() + input.Substring(1);
+            }
         }
 
         public JsonResult doesUserNameExist(string UserName)

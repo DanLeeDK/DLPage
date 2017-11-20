@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using PrettyPetsAPI.Models;
 using PrettyPetsAPI.Viewmodels;
 
 namespace PrettyPetsAPI.Controllers
@@ -15,11 +18,13 @@ namespace PrettyPetsAPI.Controllers
     public class PetsController : Controller
     {
         private readonly PetDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
 
-        public PetsController(PetDbContext context, IConfiguration configuration)
+        public PetsController(PetDbContext context, UserManager<AppUser> userManager, IConfiguration configuration)
         {
             _context = context;
+            _userManager = userManager;
             _configuration = configuration;
         }
 
@@ -39,19 +44,24 @@ namespace PrettyPetsAPI.Controllers
 
         // GET api/pets/5
         [HttpGet("Mypets")]
-        public List<Pet> Get([FromForm] UserIdViewModel user )
+        public async Task<List<Pet>> MyPets()
         {
-            if (ModelState.IsValid)
-            {
-                return _context.PetOwners.Find(user.Id).Pets;
-            }
-            return null;
+            var currentAppuser = await _userManager.FindByEmailAsync(_userManager.GetUserId(User));
+            var currentUser = await _context.PetOwners.Include(u => u.Pets).Where(u => u.IdentityId == currentAppuser.Id).SingleOrDefaultAsync();
+            return currentUser.Pets;
         }
 
         // POST api/pets
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] PetPostViewmodel model, IFormFile image)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var currentAppuser = await _userManager.FindByEmailAsync(_userManager.GetUserId(User));
+            var currentUser = await _context.PetOwners.Include(u => u.Pets).Where(u => u.IdentityId == currentAppuser.Id).SingleOrDefaultAsync();
+
             var path = Path.Combine(
                 Directory.GetCurrentDirectory(), "wwwroot/PetImages", image.FileName);
 
@@ -61,18 +71,25 @@ namespace PrettyPetsAPI.Controllers
             }
             var pet = new Pet()
             {
-                Name = model.Name,
-                Town = model.Town,
+                Name = FirstCharToUpper(model.Name),
+                Town = FirstCharToUpper(model.Town),
                 Age = model.Age,
                 Image = (_configuration.GetConnectionString("ImageFolder") + image.FileName)
             };
 
-            var owner = await _context.PetOwners.FindAsync(model.UserId);
+            currentUser.Pets.Add(pet);
+            await _context.SaveChangesAsync();
+            return Ok(pet);
+        }
 
-            owner.Pets.Add(pet);
-            _context.Pets.Add(pet);
-            _context.SaveChanges();
-            return Ok();
+        public static string FirstCharToUpper(string input)
+        {
+            switch (input)
+            {
+                case null: throw new ArgumentNullException(nameof(input));
+                case "": throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input));
+                default: return input.First().ToString().ToUpper() + input.Substring(1);
+            }
         }
 
         // PUT api/values/5

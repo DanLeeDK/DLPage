@@ -19,6 +19,7 @@ import { CreateUserComponent } from './user/create-user/create-user.component';
 import { LoginComponent } from './user/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
+import { MypetsComponent } from './pets/mypets/mypets.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
     CreatePetComponent,
     CreateUserComponent,
     LoginComponent,
+    MypetsComponent,
 
   ],
   imports: [

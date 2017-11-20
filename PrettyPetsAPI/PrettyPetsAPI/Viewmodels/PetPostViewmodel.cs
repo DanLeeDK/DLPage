@@ -7,9 +7,6 @@ namespace PrettyPetsAPI.Viewmodels
         public int Id { get; set; }
 
         [Required]
-        public int UserId { get; set; }
-
-        [Required]
         [MaxLength(100), MinLength(1)]
         public string Name { get; set; }
 

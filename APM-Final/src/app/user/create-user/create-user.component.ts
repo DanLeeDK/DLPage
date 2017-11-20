@@ -19,8 +19,9 @@ export class CreateUserComponent implements OnInit {
   }
 
   Register(user: UserRegistration) {
-      this.userService.register(user).subscribe();
       this.router.navigate(['welcome']);
+      this.userService.register(user).subscribe();
+      console.log('Created account: ' + user.email );
   }
 
 

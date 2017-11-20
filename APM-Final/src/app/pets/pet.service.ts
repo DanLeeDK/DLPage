@@ -23,6 +23,11 @@ addPet(pet: Pet, fileToUpload: any) {
   payload.append('age', pet.age.toString());
   payload.append('image', fileToUpload);
 
+  // const options = {
+  //   headers: new HttpHeaders().set('Content-Type', 'application/json'),
+  //   responseType: 'text' as any
+  // };
+
   return this.http.post<Pet>(this._apiUrl + 'pets', payload);
   }
 
@@ -44,6 +49,19 @@ getAllPets(): Observable<Pet[]> {
   };
 
   return this.http.get<Pet[]>(this._apiUrl + 'pets', options);
+}
+
+
+getMyPets(): Observable<Pet[]> {
+  const token = this.userService.getToken();
+   // TODO error handling
+  const header = new HttpHeaders().set('Authorization', 'Bearer' + token);
+
+  const options = {
+    headers: header,
+  };
+
+  return this.http.get<Pet[]>(this._apiUrl + 'pets/mypets', options);
 }
 }
 

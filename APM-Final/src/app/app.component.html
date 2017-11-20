@@ -8,7 +8,8 @@
                 <li><a [routerLink]="['/welcome']">Home</a></li>
                 <li><a [routerLink]="['/createuser']">Create new account</a></li>
                 <li><a [routerLink]="['/createpet']">Add new pet</a></li>
-                <li><a [routerLink]="['/petslist']">Pets</a></li>
+                <li><a [routerLink]="['/mypets']">My Pets</a></li>
+                <li><a [routerLink]="['/petslist']">All Pets</a></li>
                 <li *ngIf=loggedIn ><a (click)=logout()>Log out</a></li>
             </ul>
         </div>

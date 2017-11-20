@@ -1,3 +1,4 @@
+import { MypetsComponent } from './pets/mypets/mypets.component';
 import { LoginComponent } from './user/login/login.component';
 import { PetProfilComponent } from './pets/pet-profil/pet-profil.component';
 import { PetListComponent } from './pets/pet-list/pet-list.component';
@@ -21,6 +22,11 @@ const routes: Routes = [
   path: 'createpet',
   component: CreatePetComponent,
   canActivate: [AuthGuard]
+  },
+  {
+    path: 'mypets',
+    component: MypetsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'petslist',

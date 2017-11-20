@@ -36,7 +36,7 @@
 <input [(ngModel)]="user.confirmPassword" class="form-control" type="password" name="conpwd" id="conpwd">
 
           </div>
-          <button [disabled]="firstname.errors || lastname.errors" class="btn btn-outline-primary" (click)="Register(user)">Create account</button>
+          <button type="button" [disabled]="firstname.errors || lastname.errors" class="btn btn-outline-primary" (click)="Register(user)">Create account</button>
       </form>
     </div>
   </div>

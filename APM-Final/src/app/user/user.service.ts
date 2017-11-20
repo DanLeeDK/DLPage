@@ -19,13 +19,10 @@ export class UserService extends BaseService {
     public register(user: UserRegistration) {
       const options = {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        responseType: 'text'
+        responseType: 'text' as 'text'
       };
 
-      return this.http.post(this._apiUrl + 'account/register', user, {
-        headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        responseType: 'text'
-     });
+      return this.http.post(this._apiUrl + 'account/register', user, options);
     }
 
     public login(user: UserCredentials) {

@@ -24,6 +24,10 @@
 </div>
 
       </div>
-    <button [disabled]="email.errors || password.errors" class="btn btn-outline-primary" type="submit">Create account</button>
+    <button [disabled]="email.errors || password.errors" class="btn btn-outline-primary" type="submit">Login</button>
   </form>
+</div>
+
+<div *ngIf=loggedIn style=padding-top:2cm>
+  <pm-create-user></pm-create-user>
 </div>

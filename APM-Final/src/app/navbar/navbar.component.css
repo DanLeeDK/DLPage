@@ -1,0 +1,12 @@
+a {
+  cursor:pointer;
+  }
+
+li {
+  cursor:pointer;
+  }
+  .navbar {
+    width:100%;
+    background:rgb(51, 69, 85) !important;
+  }
+

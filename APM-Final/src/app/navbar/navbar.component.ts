@@ -8,7 +8,9 @@ import { UserService } from '../user/user.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {showNavbar: boolean = false;
+export class NavbarComponent implements OnInit {
+  showNavbar: boolean = false;
+  show: boolean = false;
   constructor( private userService: UserService,
     private router: Router,
     private globalEventsManager: GlobalEventsManager
@@ -18,6 +20,10 @@ export class NavbarComponent implements OnInit {showNavbar: boolean = false;
     });
 }
 
+toggleCollapse() {
+  // this.show = !this.show
+    this.show = !this.show;
+  }
   logout() {
     this.userService.logout();
     this.globalEventsManager.showNavBar(false);

@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetService } from './pets/pet.service';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
@@ -23,6 +24,7 @@ import { MypetsComponent } from './pets/mypets/mypets.component';
 import { GlobalEventsManager } from './shared/GlobalEventsManager';
 import { NavbarComponent } from './navbar/navbar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,10 +36,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     CreateUserComponent,
     LoginComponent,
     MypetsComponent,
-    NavbarComponent,
-
+    NavbarComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     HttpModule,
     HttpClientModule,

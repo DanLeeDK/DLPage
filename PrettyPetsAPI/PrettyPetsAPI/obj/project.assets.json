@@ -12662,15 +12662,12 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\PrettyPetsAPI.csproj",
+      "projectUniqueName": "c:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\PrettyPetsAPI.csproj",
       "projectName": "PrettyPetsAPI",
-      "projectPath": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\PrettyPetsAPI.csproj",
+      "projectPath": "c:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\PrettyPetsAPI.csproj",
       "packagesPath": "C:\\Users\\Dan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\obj\\",
+      "outputPath": "c:\\Users\\Dan\\Documents\\Skole\\5. Semester_Praktik\\PrettyPets\\PrettyPetsAPI\\PrettyPetsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12700,11 +12697,28 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "System.IdentityModel.Tokens.Jwt": {
+          "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "5.1.4"
+            "version": "2.0.0",
+            "autoReferenced": true
+          },
+          "FluentValidation.AspNetCore": {
+            "target": "Package",
+            "version": "7.2.1"
+          },
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "2.0.0"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
             "target": "Package",
             "version": "2.0.0"
           },
@@ -12712,38 +12726,21 @@
             "target": "Package",
             "version": "2.0.0"
           },
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-            "target": "Package",
-            "version": "3.1.0"
-          },
-          "FluentValidation.AspNetCore": {
-            "target": "Package",
-            "version": "7.2.1"
-          },
-          "Microsoft.EntityFrameworkCore.Design": {
-            "target": "Package",
-            "version": "2.0.0"
-          },
           "Microsoft.IdentityModel.Tokens": {
             "target": "Package",
             "version": "5.1.4"
           },
-          "Microsoft.NETCore.App": {
+          "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
-          },
-          "Microsoft.AspNetCore.Authentication.JwtBearer": {
-            "target": "Package",
-            "version": "2.0.0"
+            "version": "5.1.4"
           },
           "AutoMapper": {
             "target": "Package",
             "version": "6.2.0"
           },
-          "Microsoft.AspNetCore.All": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
-            "version": "2.0.0"
+            "version": "3.1.0"
           }
         },
         "imports": [

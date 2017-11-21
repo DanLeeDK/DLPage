@@ -21,6 +21,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { MypetsComponent } from './pets/mypets/mypets.component';
 import { GlobalEventsManager } from './shared/GlobalEventsManager';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { GlobalEventsManager } from './shared/GlobalEventsManager';
     CreateUserComponent,
     LoginComponent,
     MypetsComponent,
+    NavbarComponent,
 
   ],
   imports: [

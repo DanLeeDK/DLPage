@@ -21,8 +21,12 @@ this.delete = !this.delete;
 }
 
   deletePet()  {
-    this.service.deletePet(this.pet.id).subscribe();
-    this.router.navigate(['petslist']);
+    this.service.deletePet(this.pet.id).subscribe(
+      (res) => {
+        console.log('Deleting...');
+        this.router.navigate(['petslist']);
+      }
+    );
   }
 
   ngOnInit() {

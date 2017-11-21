@@ -32,7 +32,15 @@ addPet(pet: Pet, fileToUpload: any) {
   }
 
 deletePet(id: number) {
-return this.http.delete(this._apiUrl + 'pets/' + id);
+  const token = this.userService.getToken();
+  // TODO error handling
+
+ const options = {
+  headers: new HttpHeaders().set('Authorization', 'Bearer' + token),
+  responseType: 'text' as 'text'
+};
+
+return this.http.delete(this._apiUrl + 'pets/' + id, options);
 }
 
 getPet(id: number): Observable<Pet> {

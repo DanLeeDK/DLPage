@@ -5,7 +5,7 @@ a {
 li {
   cursor:pointer;
   }
-  li.label {
+li.label {
     color: rgb(211, 209, 209);
 }
 

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   pageTitle: string = 'Pretty Pets';
+
   ngOnInit() {
     }
 }

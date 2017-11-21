@@ -20,6 +20,7 @@ import { LoginComponent } from './user/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { MypetsComponent } from './pets/mypets/mypets.component';
+import { GlobalEventsManager } from './shared/GlobalEventsManager';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ providers: [
     UserService,
     TokenService,
     AuthGuard,
+    GlobalEventsManager,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

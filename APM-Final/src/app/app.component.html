@@ -5,11 +5,12 @@
         <div class='container-fluid'>
 
             <ul class='nav navbar-nav'>
-                <li><a [routerLink]="['/welcome']">Home</a></li>
-                <li><a [routerLink]="['/createpet']">Add new pet</a></li>
-                <li><a [routerLink]="['/mypets']">My Pets</a></li>
-                <li><a [routerLink]="['/petslist']">All Pets</a></li>
-                <li *ngIf=loggedIn ><a (click)=logout()>Log out</a></li>
+              <li *ngIf=!showNavbar><label>Pretty Pets</label></li>
+                <li *ngIf=showNavbar><a [routerLink]="['/welcome']">Home</a></li>
+                <li *ngIf=showNavbar><a [routerLink]="['/createpet']">Add new pet</a></li>
+                <li *ngIf=showNavbar><a [routerLink]="['/mypets']">My Pets</a></li>
+                <li *ngIf=showNavbar><a [routerLink]="['/petslist']">All Pets</a></li>
+                <li *ngIf=showNavbar><a (click)=logout()>Log out</a></li>
             </ul>
         </div>
     </nav>

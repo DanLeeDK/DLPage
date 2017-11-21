@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { UserCredentials, UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
+import { GlobalEventsManager } from '../../shared/GlobalEventsManager';
 
 @Component({
   selector: 'pm-login',
@@ -11,7 +12,11 @@ export class LoginComponent implements OnInit {
   loggedIn: boolean;
   credentials: UserCredentials;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private globalEventsManager: GlobalEventsManager
+  ) {
     this.credentials = new UserCredentials();
   }
 
@@ -24,8 +29,13 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    this.userService.login(this.credentials).subscribe();
-    this.router.navigate(['welcome']);
+     this.userService.login(this.credentials).subscribe(
+       (res) => {
+        this.globalEventsManager.showNavBar(true);
+        this.router.navigate(['welcome']);
+       }
+     );
+
   }
 
 }

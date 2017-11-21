@@ -21,9 +21,10 @@ savePet(pet: Pet) {
   const fi = this.PetImage.nativeElement;
   if (fi.files && fi.files[0]) {
       const fileToUpload = fi.files[0];
-      this.service.addPet(pet, fileToUpload).subscribe();
+      this.service.addPet(pet, fileToUpload).subscribe(
+        (succes) => this.router.navigate(['petslist'])
+      );
 }
-  this.router.navigate(['petslist']);
 }
 
 ngOnInit() {

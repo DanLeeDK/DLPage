@@ -5,10 +5,11 @@
               <li *ngIf=!showNavbar>
                 <a href="#" class="navbar-brand text-primary" id="logo">Pretty Pets</a>
               </li>
-                <li *ngIf=showNavbar><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li *ngIf=showNavbar><a [routerLink]="['/createpet']">Add new pet</a></li>
                 <li *ngIf=showNavbar><a [routerLink]="['/mypets']">My Pets</a></li>
                 <li *ngIf=showNavbar><a [routerLink]="['/petslist']">All Pets</a></li>
+                <li *ngIf=!showNavbar><a [routerLink]="['/login']">Log in</a></li>
                 <li *ngIf=showNavbar><a (click)=logout()>Log out</a></li>
             </ul>
         </div>

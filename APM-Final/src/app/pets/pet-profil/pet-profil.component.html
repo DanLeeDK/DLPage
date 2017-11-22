@@ -10,6 +10,8 @@
       <label>Name: {{pet.name}}</label>
       <label>Age: {{pet.age}} years</label>
       <label>Town: {{pet.town}}</label>
+
+      <div *ngIf=deletable>
     <div class="pull-left">
       <div *ngIf=!delete>
         <button (click)="showDeleteButton()">Delete pet</button>
@@ -20,6 +22,7 @@
       <button (click)="deletePet()">Yes</button>
       <button class="cancelbtn" (click)="showDeleteButton()" >Cancel</button>
     </div>
+  </div>
     </div>
 
   </div>

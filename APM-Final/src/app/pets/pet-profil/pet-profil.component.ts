@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class PetProfilComponent implements OnInit {
 id: number;
 pet: Pet;
+petslist: Pet[];
+deletable = true;
 delete = false;
 
   constructor( private service: PetService, private route: ActivatedRoute, private router: Router ) {
@@ -39,6 +41,13 @@ this.delete = !this.delete;
       },
       err => {
         console.log('Something went wrong while getting the pet!');
+      });
+
+      this.service.getMyPets().subscribe(data => {
+        this.petslist = data;
+        if (this.petslist.includes(this.pet)) {
+          this.deletable = true;
+      }
       });
   }
 }

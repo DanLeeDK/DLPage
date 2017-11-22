@@ -15,13 +15,11 @@ import { CreateUserComponent } from './user/create-user/create-user.component';
 const routes: Routes = [
   {
     path: 'welcome',
-    component: WelcomeComponent,
-    canActivate: [AuthGuard]
+    component: WelcomeComponent
   },
   {
   path: 'createpet',
-  component: CreatePetComponent,
-  canActivate: [AuthGuard]
+  component: CreatePetComponent
   },
   {
     path: 'mypets',

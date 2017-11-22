@@ -19,7 +19,8 @@ const routes: Routes = [
   },
   {
   path: 'createpet',
-  component: CreatePetComponent
+  component: CreatePetComponent,
+  canActivate: [AuthGuard]
   },
   {
     path: 'mypets',

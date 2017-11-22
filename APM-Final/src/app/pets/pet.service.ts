@@ -79,5 +79,5 @@ export class Pet {
   name: string;
   age: number;
   town: string;
-  image: string;
+  images: string[];
 }

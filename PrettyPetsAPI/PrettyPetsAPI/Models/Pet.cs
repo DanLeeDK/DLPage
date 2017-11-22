@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using PrettyPetsAPI.Models;
 
 namespace PrettyPetsAPI
 {
@@ -20,6 +21,6 @@ namespace PrettyPetsAPI
         [Range(0, 100, ErrorMessage = "Can only be between 0 .. 100 years")]
         public int Age { get; set; }
 
-        public string Image { get; set; }
+        public List<Image> Images { get; set; }
     }
 }

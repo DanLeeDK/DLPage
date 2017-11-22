@@ -30,9 +30,9 @@ namespace PrettyPetsAPI.Controllers
 
         // GET api/pets
         [HttpGet]
-        public async Task<IEnumerable<Pet>> Get()
+        public IEnumerable<Pet> Get()
         {
-            return await _context.Pets.ToListAsync();
+            return _context.Pets.ToList();
         }
 
         // GET api/pets/5
@@ -74,7 +74,11 @@ namespace PrettyPetsAPI.Controllers
                 Name = FirstCharToUpper(model.Name),
                 Town = FirstCharToUpper(model.Town),
                 Age = model.Age,
-                Image = (_configuration.GetConnectionString("ImageFolder") + image.FileName)
+                Images = new List<string>()
+                {
+                  ((_configuration.GetConnectionString("ImageFolder") + image.FileName))
+                 }
+               
             };
 
             currentUser.Pets.Add(pet);

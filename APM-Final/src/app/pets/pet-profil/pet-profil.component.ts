@@ -12,10 +12,10 @@ export class PetProfilComponent implements OnInit {
 id: number;
 pet: Pet;
 petslist: Pet[];
-deletable = true;
+deletable = false;
 delete = false;
 
-  constructor( private service: PetService, private route: ActivatedRoute, private router: Router ) {
+constructor( private service: PetService, private route: ActivatedRoute, private router: Router ) {
   }
 
 showDeleteButton() {
@@ -32,22 +32,26 @@ this.delete = !this.delete;
   }
 
   ngOnInit() {
+    let pet = new Pet();
     this.route.params.subscribe(params => {
       this.id = params['id'];
      });
      this.service.getPet(this.id).subscribe(
       data => {
         this.pet = data;
+        pet = data;
       },
       err => {
         console.log('Something went wrong while getting the pet!');
       });
 
-      this.service.getMyPets().subscribe(data =>
-        this.petslist = data
-      );
-      if (this.petslist.includes(this.pet)) {
-        this.deletable = false;
-    }
+      this.service.getMyPets().subscribe(pets => {
+        pets.forEach(element => {
+          if (element.id === pet.id) {
+            this.deletable = true;
+        }
+      }
+    );
+    });
   }
 }

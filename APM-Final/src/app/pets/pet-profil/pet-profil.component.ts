@@ -43,11 +43,11 @@ this.delete = !this.delete;
         console.log('Something went wrong while getting the pet!');
       });
 
-      this.service.getMyPets().subscribe(data => {
-        this.petslist = data;
-        if (this.petslist.includes(this.pet)) {
-          this.deletable = true;
-      }
-      });
+      this.service.getMyPets().subscribe(data =>
+        this.petslist = data
+      );
+      if (this.petslist.includes(this.pet)) {
+        this.deletable = false;
+    }
   }
 }

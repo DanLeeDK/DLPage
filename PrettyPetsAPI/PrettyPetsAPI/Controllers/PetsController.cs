@@ -102,7 +102,16 @@ namespace PrettyPetsAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            // Get asking user
+            var currentAppuser = await _userManager.FindByEmailAsync(_userManager.GetUserId(User));
+            var currentUser = await _context.PetOwners.Include(u => u.Pets).Where(u => u.IdentityId == currentAppuser.Id).SingleOrDefaultAsync();
+
+            // Get chosen pet
             var pet = await _context.Pets.FirstOrDefaultAsync(p => p.Id == id);
+
+            //Check user owns pet
+            if (!currentUser.Pets.Contains(pet))
+                return BadRequest("User doesn't own this pet and therefore cant delete it!");
 
             _context.Pets.Remove(pet);
             _context.SaveChanges();

@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { HttpHeaders } from '@angular/common/http';
+import { Image } from '../shared/Image';
 
 @Injectable()
 export class PetService {
@@ -23,13 +24,15 @@ addPet(pet: Pet, fileToUpload: any) {
   payload.append('age', pet.age.toString());
   payload.append('image', fileToUpload);
 
-  // const options = {
-  //   headers: new HttpHeaders().set('Content-Type', 'application/json'),
-  //   responseType: 'text' as any
-  // };
-
   return this.http.post<Pet>(this._apiUrl + 'pets', payload);
-  }
+}
+
+  addImage(fileToUpload: any) {
+    const payload = new FormData();
+    payload.append('image', fileToUpload);
+
+    return this.http.post(this._apiUrl + 'pets', payload);
+}
 
 deletePet(id: number) {
   const token = this.userService.getToken();
@@ -79,5 +82,5 @@ export class Pet {
   name: string;
   age: number;
   town: string;
-  images: string[];
+  images: Image[];
 }

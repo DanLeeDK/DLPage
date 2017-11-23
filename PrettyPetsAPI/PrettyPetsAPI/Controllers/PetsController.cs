@@ -32,14 +32,14 @@ namespace PrettyPetsAPI.Controllers
         [HttpGet]
         public IEnumerable<Pet> Get()
         {
-            return _context.Pets.ToList();
+            return _context.Pets.Include(p => p.Images).ToList();
         }
 
         // GET api/pets/5
         [HttpGet("{id}")]
         public async Task<Pet> Get(int id)
         {
-            return await _context.Pets.FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Pets.Include(p => p.Images).FirstOrDefaultAsync(p => p.Id == id);
         }
 
         // GET api/pets/5
@@ -74,11 +74,12 @@ namespace PrettyPetsAPI.Controllers
                 Name = FirstCharToUpper(model.Name),
                 Town = FirstCharToUpper(model.Town),
                 Age = model.Age,
-                Images = new List<string>()
+                Images = new List<Image>()
                 {
-                  ((_configuration.GetConnectionString("ImageFolder") + image.FileName))
+                 new Image() {
+                     ImagePath = ((_configuration.GetConnectionString("ImageFolder") + image.FileName))
+                     }
                  }
-               
             };
 
             currentUser.Pets.Add(pet);

@@ -1,6 +1,7 @@
 import { UserService } from './../../user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { PetService, Pet } from './../pet.service';
+import { Image } from '../../shared/Image';
 
 
 @Component({

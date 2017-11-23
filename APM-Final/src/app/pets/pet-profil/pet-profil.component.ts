@@ -1,6 +1,8 @@
+import { Image } from './../../shared/Image';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PetService, Pet } from './../pet.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { CarouselModule } from 'ngx-bootstrap';
 
 
 @Component({
@@ -14,7 +16,9 @@ pet: Pet;
 petslist: Pet[];
 deletable = false;
 delete = false;
+ImageLoaded = true;
 
+@ViewChild('PetImage') PetImage;
 constructor( private service: PetService, private route: ActivatedRoute, private router: Router ) {
   }
 
@@ -22,14 +26,30 @@ showDeleteButton() {
 this.delete = !this.delete;
 }
 
-  deletePet()  {
-    this.service.deletePet(this.pet.id).subscribe(
-      (res) => {
-        console.log('Deleting...');
-        this.router.navigate(['petslist']);
-      }
-    );
-  }
+LoadImage() {
+  this.ImageLoaded = !this.ImageLoaded;
+}
+
+deletePet()  {
+  this.service.deletePet(this.pet.id).subscribe(
+    (res) => {
+      console.log('Deleting...');
+      this.router.navigate(['petslist']);
+    }
+  );
+}
+
+addImage() {
+  const fi = this.PetImage.nativeElement;
+  if (fi.files && fi.files[0]) {
+      const fileToUpload = fi.files[0];
+      this.service.addImage(fileToUpload).subscribe(
+        (succes) => this.router.navigate(['petprofil/' + this.pet.id])
+      );
+} else {
+  alert('Please choose a picture to upload');
+}
+}
 
   ngOnInit() {
     let pet = new Pet();

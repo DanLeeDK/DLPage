@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetService } from './pets/pet.service';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AlertModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
@@ -39,12 +41,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     NavbarComponent
   ],
   imports: [
+    CarouselModule.forRoot(),
+    AlertModule.forRoot(),
     NgbModule.forRoot(),
     BrowserModule,
     HttpModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
 providers: [
     PetService,

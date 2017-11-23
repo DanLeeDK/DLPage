@@ -27,7 +27,7 @@ this.delete = !this.delete;
 }
 
 LoadImage() {
-  this.ImageLoaded = !this.ImageLoaded;
+  this.ImageLoaded = false;
 }
 
 deletePet()  {
@@ -43,7 +43,7 @@ addImage() {
   const fi = this.PetImage.nativeElement;
   if (fi.files && fi.files[0]) {
       const fileToUpload = fi.files[0];
-      this.service.addImage(fileToUpload).subscribe(
+      this.service.addImage(this.pet.id, fileToUpload).subscribe(
         (succes) => this.router.navigate(['petprofil/' + this.pet.id])
       );
 } else {

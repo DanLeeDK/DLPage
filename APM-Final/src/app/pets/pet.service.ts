@@ -27,11 +27,12 @@ addPet(pet: Pet, fileToUpload: any) {
   return this.http.post<Pet>(this._apiUrl + 'pets', payload);
 }
 
-  addImage(fileToUpload: any) {
-    const payload = new FormData();
-    payload.append('image', fileToUpload);
+addImage(petId: number, fileToUpload: any) {
+  const payload = new FormData();
+  payload.append('id', petId.toString());
+  payload.append('image', fileToUpload);
 
-    return this.http.post(this._apiUrl + 'pets', payload);
+  return this.http.post(this._apiUrl + 'pets/upload', payload);
 }
 
 deletePet(id: number) {

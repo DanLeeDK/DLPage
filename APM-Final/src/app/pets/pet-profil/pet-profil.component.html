@@ -8,7 +8,7 @@
   </carousel>
 
 <!-- Info -->
-  <div class="span6 pull-left">
+  <div class="span6 pull-left" class="container">
       <label>Name: {{pet.name}}</label>
       <label>Age: {{pet.age}} years</label>
       <label>Town: {{pet.town}}</label>
@@ -27,11 +27,16 @@
       </div>
     </div>
   </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 <!-- Add image -->
 <div>
+    <label>Upload more pictures of {{pet.name}}</label>
     <input type="file" required name="PetImage" (click)=LoadImage() class="form-control" style="padding-top: 1cm; padding-bottom: 0.5cm"  #PetImage  placeholder="Upload file..." />
 
-      <button type="button" class="btn btn-outline-primary" [hidden]=ImageLoaded (click)="addImage()">Submit</button>
+      <button type="button"  [hidden]=ImageLoaded (click)="addImage()">Submit</button>
 </div>
   </div>
 </div>

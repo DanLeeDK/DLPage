@@ -97,6 +97,38 @@ namespace PrettyPetsAPI.Controllers
             }
         }
 
+        // POST api/pets
+        [HttpPost("upload")]
+        public async Task<IActionResult> Upload([FromForm] int id, IFormFile image)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var currentAppuser = await _userManager.FindByEmailAsync(_userManager.GetUserId(User));
+            var currentUser = await _context.PetOwners.Include(u => u.Pets).Where(u => u.IdentityId == currentAppuser.Id).SingleOrDefaultAsync();
+
+            var path = Path.Combine(
+                Directory.GetCurrentDirectory(), "wwwroot/PetImages", image.FileName);
+
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await image.CopyToAsync(fileStream);
+            }
+
+            var pet = _context.Pets.Include(p => p.Images).FirstOrDefault(p => p.Id == id);
+
+            var newImage = new Image
+            {
+                ImagePath = ((_configuration.GetConnectionString("ImageFolder") + image.FileName))
+            };
+                    
+            pet.Images.Add(newImage);
+            
+            await _context.SaveChangesAsync();
+            return Ok(pet);
+        }
+
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)

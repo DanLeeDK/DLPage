@@ -21,6 +21,8 @@ namespace PrettyPetsAPI
         [Range(0, 100, ErrorMessage = "Can only be between 0 .. 100 years")]
         public int Age { get; set; }
 
+        public int PetOwnerId { get; set; }
+
         public List<Image> Images { get; set; }
     }
 }

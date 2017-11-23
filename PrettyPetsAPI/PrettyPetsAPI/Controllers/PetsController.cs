@@ -47,8 +47,11 @@ namespace PrettyPetsAPI.Controllers
         public async Task<List<Pet>> MyPets()
         {
             var currentAppuser = await _userManager.FindByEmailAsync(_userManager.GetUserId(User));
-            var currentUser = await _context.PetOwners.Include(u => u.Pets).Where(u => u.IdentityId == currentAppuser.Id).SingleOrDefaultAsync();
+            var currentUser = await _context.PetOwners.Include(u => u.Pets)
+                .ThenInclude(p => p.Images)
+                .Where(u => u.IdentityId == currentAppuser.Id).SingleOrDefaultAsync();
             return currentUser.Pets;
+
         }
 
         // POST api/pets

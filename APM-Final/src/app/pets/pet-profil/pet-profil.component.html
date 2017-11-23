@@ -36,7 +36,7 @@
     <label>Upload more pictures of {{pet.name}}</label>
     <input type="file" required name="PetImage" (click)=LoadImage() class="form-control" style="padding-top: 1cm; padding-bottom: 0.5cm"  #PetImage  placeholder="Upload file..." />
 
-      <button type="button"  [hidden]=ImageLoaded (click)="addImage()">Submit</button>
+      <button type="button" [hidden]=ImageLoaded (click)="addImage()">Submit</button>
 </div>
   </div>
 </div>

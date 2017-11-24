@@ -50,8 +50,8 @@ namespace PrettyPetsAPI.Controllers
             var currentUser = await _context.PetOwners.Include(u => u.Pets)
                 .ThenInclude(p => p.Images)
                 .Where(u => u.IdentityId == currentAppuser.Id).SingleOrDefaultAsync();
-            return currentUser.Pets;
 
+            return currentUser.Pets;
         }
 
         // POST api/pets
